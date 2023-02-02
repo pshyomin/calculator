@@ -1,6 +1,6 @@
 # calculator
 
-A new Flutter project.
+계산기 (포트폴리오)
 
 ## Getting Started
 
