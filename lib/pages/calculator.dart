@@ -31,28 +31,231 @@ class CalculatorPage extends StatelessWidget {
         children: <Widget>[
           Container(
             width: layoutManager.width,
-            height: layoutManager.getLayoutHeight(0.3),
-            color: Colors.amberAccent,
+            height: layoutManager.getLayoutHeight(0.25),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              calculatorNumButton('1', layoutManager),
-              calculatorNumButton('2', layoutManager),
-              calculatorNumButton('3', layoutManager),
-              calculatorNumButton('4', layoutManager),
-            ],
+          // 계산기 첫번째 줄
+          Container(
+            margin: const EdgeInsets.only(bottom: 6),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                calculatorNumButton(
+                  'AC',
+                  layoutManager,
+                  Colors.grey,
+                  const TextStyle(
+                    color: Colors.black,
+                    fontSize: 32,
+                  ),
+                ),
+                calculatorNumButton(
+                  '±',
+                  layoutManager,
+                  Colors.grey,
+                  const TextStyle(
+                    color: Colors.black,
+                    fontSize: 32,
+                  ),
+                ),
+                calculatorNumButton(
+                  '%',
+                  layoutManager,
+                  Colors.grey,
+                  const TextStyle(
+                    color: Colors.black,
+                    fontSize: 32,
+                  ),
+                ),
+                calculatorNumButton(
+                  '÷',
+                  layoutManager,
+                  Colors.orange,
+                  const TextStyle(
+                    color: Colors.white,
+                    fontSize: 32,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(bottom: 6),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                calculatorNumButton(
+                  '7',
+                  layoutManager,
+                  const Color.fromRGBO(31, 31, 31, 1),
+                  const TextStyle(
+                    color: Colors.white,
+                    fontSize: 32,
+                  ),
+                ),
+                calculatorNumButton(
+                  '8',
+                  layoutManager,
+                  const Color.fromRGBO(31, 31, 31, 1),
+                  const TextStyle(
+                    color: Colors.white,
+                    fontSize: 32,
+                  ),
+                ),
+                calculatorNumButton(
+                  '9',
+                  layoutManager,
+                  const Color.fromRGBO(31, 31, 31, 1),
+                  const TextStyle(
+                    color: Colors.white,
+                    fontSize: 32,
+                  ),
+                ),
+                calculatorNumButton(
+                  'x',
+                  layoutManager,
+                  Colors.orange,
+                  const TextStyle(
+                    color: Colors.white,
+                    fontSize: 32,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(bottom: 6),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                calculatorNumButton(
+                  '4',
+                  layoutManager,
+                  const Color.fromRGBO(31, 31, 31, 1),
+                  const TextStyle(
+                    color: Colors.white,
+                    fontSize: 32,
+                  ),
+                ),
+                calculatorNumButton(
+                  '5',
+                  layoutManager,
+                  const Color.fromRGBO(31, 31, 31, 1),
+                  const TextStyle(
+                    color: Colors.white,
+                    fontSize: 32,
+                  ),
+                ),
+                calculatorNumButton(
+                  '6',
+                  layoutManager,
+                  const Color.fromRGBO(31, 31, 31, 1),
+                  const TextStyle(
+                    color: Colors.white,
+                    fontSize: 32,
+                  ),
+                ),
+                calculatorNumButton(
+                  '―',
+                  layoutManager,
+                  Colors.orange,
+                  const TextStyle(
+                    color: Colors.white,
+                    fontSize: 32,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(bottom: 6),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                calculatorNumButton(
+                  '1',
+                  layoutManager,
+                  const Color.fromRGBO(31, 31, 31, 1),
+                  const TextStyle(
+                    color: Colors.white,
+                    fontSize: 32,
+                  ),
+                ),
+                calculatorNumButton(
+                  '2',
+                  layoutManager,
+                  const Color.fromRGBO(31, 31, 31, 1),
+                  const TextStyle(
+                    color: Colors.white,
+                    fontSize: 32,
+                  ),
+                ),
+                calculatorNumButton(
+                  '3',
+                  layoutManager,
+                  const Color.fromRGBO(31, 31, 31, 1),
+                  const TextStyle(
+                    color: Colors.white,
+                    fontSize: 32,
+                  ),
+                ),
+                calculatorNumButton(
+                  '+',
+                  layoutManager,
+                  Colors.orange,
+                  const TextStyle(
+                    color: Colors.white,
+                    fontSize: 32,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(bottom: 6),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                calculatorNumButton(
+                  '0',
+                  layoutManager,
+                  const Color.fromRGBO(31, 31, 31, 1),
+                  const TextStyle(
+                    color: Colors.white,
+                    fontSize: 32,
+                  ),
+                ),
+                calculatorNumButton(
+                  '.',
+                  layoutManager,
+                  const Color.fromRGBO(31, 31, 31, 1),
+                  const TextStyle(
+                    color: Colors.white,
+                    fontSize: 32,
+                  ),
+                ),
+                calculatorNumButton(
+                  '=',
+                  layoutManager,
+                  Colors.orange,
+                  const TextStyle(
+                    color: Colors.white,
+                    fontSize: 32,
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),
     );
   }
 
-  Widget calculatorNumButton(String number, LayoutManager layoutManager) {
+  Widget calculatorNumButton(String number, LayoutManager layoutManager,
+      Color background, TextStyle textStyle) {
     bool isHover = false;
-    final int num = int.parse(number);
 
-    return SizedBox(
+    return Container(
+      padding: const EdgeInsets.all(3),
       width: number != '0'
           ? layoutManager.getWidth(0.23)
           : layoutManager.getWidth(0.46),
@@ -69,10 +272,12 @@ class CalculatorPage extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 shape: const CircleBorder(),
                 padding: const EdgeInsets.all(8),
-                backgroundColor:
-                    isHover == false ? Colors.grey : Colors.black12,
+                backgroundColor: isHover == false ? background : Colors.black12,
               ),
-              child: Text(number),
+              child: Text(
+                number,
+                style: textStyle,
+              ),
             )
           : ElevatedButton(
               onPressed: () {
@@ -89,10 +294,16 @@ class CalculatorPage extends StatelessWidget {
                   ),
                 ),
                 padding: const EdgeInsets.all(8),
-                backgroundColor:
-                    isHover == false ? Colors.grey : Colors.black12,
+                backgroundColor: isHover == false ? background : Colors.black12,
               ),
-              child: Text(number),
+              child: Container(
+                width: layoutManager.getWidth(0.27),
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  number,
+                  style: textStyle,
+                ),
+              ),
             ),
     );
   }
