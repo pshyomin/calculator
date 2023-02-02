@@ -1,0 +1,22 @@
+import 'package:flutter/material.dart';
+
+import '../main.dart';
+
+class ThemeManager {
+  static void themeChange() {
+    MyApp.themeNotifier.value = MyApp.themeNotifier.value == ThemeMode.light
+        ? ThemeMode.dark
+        : ThemeMode.light;
+  }
+
+  static IconData themeIcon(IconData lightIcon, IconData darkIcon) {
+    return MyApp.themeNotifier.value == ThemeMode.light ? lightIcon : darkIcon;
+  }
+
+  static Color themeColor(
+      [Color lightColor = Colors.white, Color darkColor = Colors.black]) {
+    return MyApp.themeNotifier.value == ThemeMode.light
+        ? lightColor
+        : darkColor;
+  }
+}
