@@ -12,10 +12,10 @@ class Calculator extends StatefulWidget {
 }
 
 class CalculatorState extends State<Calculator> {
-  double num1 = 0;
+  int num1 = 0;
   String operand = '';
-  double num2 = 0;
-  double output = 0;
+  int num2 = 0;
+  String output = '0';
 
   @override
   Widget build(BuildContext context) {
@@ -43,8 +43,24 @@ class CalculatorState extends State<Calculator> {
           Container(
             width: layoutManager.width,
             height: layoutManager.getLayoutHeight(0.25),
+            margin: const EdgeInsets.fromLTRB(0, 0, 30, 10),
+            alignment: Alignment.bottomRight,
+            child: SizedBox(
+              width: layoutManager.width,
+              height: layoutManager.getLayoutHeight(0.2),
+              child: FittedBox(
+                fit: BoxFit.contain,
+                alignment: Alignment.bottomRight,
+                child: Text(
+                  output.toString(),
+                  textAlign: TextAlign.end,
+                  style: TextStyle(
+                    color: ThemeManager.themeTextColor(),
+                  ),
+                ),
+              ),
+            ),
           ),
-          // 계산기 첫번째 줄
           Container(
             margin: const EdgeInsets.only(bottom: 6),
             child: Row(
@@ -59,7 +75,7 @@ class CalculatorState extends State<Calculator> {
                     fontSize: 32,
                   ),
                   onPressButton: (value) {
-                    //
+                    buttonPress(value);
                   },
                 ),
                 CalculatorNumButton(
@@ -71,7 +87,7 @@ class CalculatorState extends State<Calculator> {
                     fontSize: 32,
                   ),
                   onPressButton: (value) {
-                    //
+                    buttonPress(value);
                   },
                 ),
                 CalculatorNumButton(
@@ -83,7 +99,7 @@ class CalculatorState extends State<Calculator> {
                     fontSize: 32,
                   ),
                   onPressButton: (value) {
-                    //
+                    buttonPress(value);
                   },
                 ),
                 CalculatorNumButton(
@@ -95,7 +111,7 @@ class CalculatorState extends State<Calculator> {
                     fontSize: 32,
                   ),
                   onPressButton: (value) {
-                    //
+                    buttonPress(value);
                   },
                 ),
               ],
@@ -115,7 +131,7 @@ class CalculatorState extends State<Calculator> {
                     fontSize: 32,
                   ),
                   onPressButton: (value) {
-                    //
+                    buttonPress(value);
                   },
                 ),
                 CalculatorNumButton(
@@ -127,7 +143,7 @@ class CalculatorState extends State<Calculator> {
                     fontSize: 32,
                   ),
                   onPressButton: (value) {
-                    //
+                    buttonPress(value);
                   },
                 ),
                 CalculatorNumButton(
@@ -139,7 +155,7 @@ class CalculatorState extends State<Calculator> {
                     fontSize: 32,
                   ),
                   onPressButton: (value) {
-                    //
+                    buttonPress(value);
                   },
                 ),
                 CalculatorNumButton(
@@ -151,7 +167,7 @@ class CalculatorState extends State<Calculator> {
                     fontSize: 32,
                   ),
                   onPressButton: (value) {
-                    //
+                    buttonPress(value);
                   },
                 ),
               ],
@@ -171,7 +187,7 @@ class CalculatorState extends State<Calculator> {
                     fontSize: 32,
                   ),
                   onPressButton: (value) {
-                    //
+                    buttonPress(value);
                   },
                 ),
                 CalculatorNumButton(
@@ -183,7 +199,7 @@ class CalculatorState extends State<Calculator> {
                     fontSize: 32,
                   ),
                   onPressButton: (value) {
-                    //
+                    buttonPress(value);
                   },
                 ),
                 CalculatorNumButton(
@@ -195,7 +211,7 @@ class CalculatorState extends State<Calculator> {
                     fontSize: 32,
                   ),
                   onPressButton: (value) {
-                    //
+                    buttonPress(value);
                   },
                 ),
                 CalculatorNumButton(
@@ -207,7 +223,7 @@ class CalculatorState extends State<Calculator> {
                     fontSize: 32,
                   ),
                   onPressButton: (value) {
-                    //
+                    buttonPress(value);
                   },
                 ),
               ],
@@ -227,7 +243,7 @@ class CalculatorState extends State<Calculator> {
                     fontSize: 32,
                   ),
                   onPressButton: (value) {
-                    //
+                    buttonPress(value);
                   },
                 ),
                 CalculatorNumButton(
@@ -239,7 +255,7 @@ class CalculatorState extends State<Calculator> {
                     fontSize: 32,
                   ),
                   onPressButton: (value) {
-                    //
+                    buttonPress(value);
                   },
                 ),
                 CalculatorNumButton(
@@ -251,7 +267,7 @@ class CalculatorState extends State<Calculator> {
                     fontSize: 32,
                   ),
                   onPressButton: (value) {
-                    //
+                    buttonPress(value);
                   },
                 ),
                 CalculatorNumButton(
@@ -263,7 +279,7 @@ class CalculatorState extends State<Calculator> {
                     fontSize: 32,
                   ),
                   onPressButton: (value) {
-                    //
+                    buttonPress(value);
                   },
                 ),
               ],
@@ -283,7 +299,7 @@ class CalculatorState extends State<Calculator> {
                     fontSize: 32,
                   ),
                   onPressButton: (value) {
-                    //
+                    buttonPress(value);
                   },
                 ),
                 CalculatorNumButton(
@@ -295,7 +311,7 @@ class CalculatorState extends State<Calculator> {
                     fontSize: 32,
                   ),
                   onPressButton: (value) {
-                    //
+                    buttonPress(value);
                   },
                 ),
                 CalculatorNumButton(
@@ -307,7 +323,7 @@ class CalculatorState extends State<Calculator> {
                     fontSize: 32,
                   ),
                   onPressButton: (value) {
-                    //
+                    buttonPress(value);
                   },
                 ),
               ],
@@ -318,63 +334,7 @@ class CalculatorState extends State<Calculator> {
     );
   }
 
-  Widget calculatorNumButton(String number, LayoutManager layoutManager,
-      Color background, TextStyle textStyle) {
-    bool isHover = false;
-
-    return Container(
-      padding: const EdgeInsets.all(3),
-      width: number != '0'
-          ? layoutManager.getWidth(0.23)
-          : layoutManager.getWidth(0.46),
-      height: layoutManager.getLayoutHeight(0.12),
-      child: number != '0'
-          ? ElevatedButton(
-              onPressed: () {
-                debugPrint('Pressed $num');
-              },
-              onHover: (value) {
-                debugPrint('Hover $num');
-                isHover = value;
-              },
-              style: ElevatedButton.styleFrom(
-                shape: const CircleBorder(),
-                padding: const EdgeInsets.all(8),
-                backgroundColor: isHover == false ? background : Colors.black12,
-              ),
-              child: Text(
-                number,
-                style: textStyle,
-              ),
-            )
-          : ElevatedButton(
-              onPressed: () {
-                debugPrint('Pressed $num');
-              },
-              onHover: (value) {
-                debugPrint('Hover');
-                isHover = value;
-              },
-              style: ElevatedButton.styleFrom(
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(50),
-                  ),
-                ),
-                padding: const EdgeInsets.all(8),
-                backgroundColor: isHover == false ? background : Colors.black12,
-              ),
-              child: Container(
-                width: layoutManager.getWidth(0.27),
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  number,
-                  style: textStyle,
-                ),
-              ),
-            ),
-    );
+  buttonPress(String text) {
+    //
   }
-
-  buttonPress(String text) {}
 }

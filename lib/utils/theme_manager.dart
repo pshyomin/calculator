@@ -19,4 +19,11 @@ class ThemeManager {
         ? lightColor
         : darkColor;
   }
+
+  static Color themeTextColor(
+      [Color lightColor = Colors.black, Color darkColor = Colors.white]) {
+    return MyApp.themeNotifier.value == ThemeMode.light
+        ? lightColor
+        : darkColor;
+  }
 }
