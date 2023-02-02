@@ -9,7 +9,7 @@ class RouterManager {
         GoRoute(
           path: '/',
           builder: (context, state) {
-            return const CalculatorPage();
+            return const Calculator();
           },
         ),
       ],

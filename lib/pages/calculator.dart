@@ -2,9 +2,20 @@ import 'package:calculator/utils/layout_manager.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/theme_manager.dart';
+import 'widgets/calculator_num_button.dart';
 
-class CalculatorPage extends StatelessWidget {
-  const CalculatorPage({Key? key}) : super(key: key);
+class Calculator extends StatefulWidget {
+  const Calculator({Key? key}) : super(key: key);
+
+  @override
+  CalculatorState createState() => CalculatorState();
+}
+
+class CalculatorState extends State<Calculator> {
+  double num1 = 0;
+  String operand = '';
+  double num2 = 0;
+  double output = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -39,41 +50,53 @@ class CalculatorPage extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                calculatorNumButton(
-                  'AC',
-                  layoutManager,
-                  Colors.grey,
-                  const TextStyle(
-                    color: Colors.black,
-                    fontSize: 32,
-                  ),
-                ),
-                calculatorNumButton(
-                  '±',
-                  layoutManager,
-                  Colors.grey,
-                  const TextStyle(
-                    color: Colors.black,
-                    fontSize: 32,
-                  ),
-                ),
-                calculatorNumButton(
-                  '%',
-                  layoutManager,
-                  Colors.grey,
-                  const TextStyle(
-                    color: Colors.black,
-                    fontSize: 32,
-                  ),
-                ),
-                calculatorNumButton(
-                  '÷',
-                  layoutManager,
-                  Colors.orange,
-                  const TextStyle(
+                CalculatorNumButton(
+                  number: 'AC',
+                  layoutManager: layoutManager,
+                  background: Colors.grey,
+                  textStyle: const TextStyle(
                     color: Colors.white,
                     fontSize: 32,
                   ),
+                  onPressButton: (value) {
+                    //
+                  },
+                ),
+                CalculatorNumButton(
+                  number: '±',
+                  layoutManager: layoutManager,
+                  background: Colors.grey,
+                  textStyle: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 32,
+                  ),
+                  onPressButton: (value) {
+                    //
+                  },
+                ),
+                CalculatorNumButton(
+                  number: '%',
+                  layoutManager: layoutManager,
+                  background: Colors.grey,
+                  textStyle: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 32,
+                  ),
+                  onPressButton: (value) {
+                    //
+                  },
+                ),
+                CalculatorNumButton(
+                  number: '÷',
+                  layoutManager: layoutManager,
+                  background: Colors.orange,
+                  textStyle: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 32,
+                  ),
+                  onPressButton: (value) {
+                    //
+                  },
                 ),
               ],
             ),
@@ -83,85 +106,53 @@ class CalculatorPage extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                calculatorNumButton(
-                  '7',
-                  layoutManager,
-                  const Color.fromRGBO(31, 31, 31, 1),
-                  const TextStyle(
+                CalculatorNumButton(
+                  number: '7',
+                  layoutManager: layoutManager,
+                  background: const Color.fromRGBO(31, 31, 31, 1),
+                  textStyle: const TextStyle(
                     color: Colors.white,
                     fontSize: 32,
                   ),
+                  onPressButton: (value) {
+                    //
+                  },
                 ),
-                calculatorNumButton(
-                  '8',
-                  layoutManager,
-                  const Color.fromRGBO(31, 31, 31, 1),
-                  const TextStyle(
+                CalculatorNumButton(
+                  number: '8',
+                  layoutManager: layoutManager,
+                  background: const Color.fromRGBO(31, 31, 31, 1),
+                  textStyle: const TextStyle(
                     color: Colors.white,
                     fontSize: 32,
                   ),
+                  onPressButton: (value) {
+                    //
+                  },
                 ),
-                calculatorNumButton(
-                  '9',
-                  layoutManager,
-                  const Color.fromRGBO(31, 31, 31, 1),
-                  const TextStyle(
+                CalculatorNumButton(
+                  number: '9',
+                  layoutManager: layoutManager,
+                  background: const Color.fromRGBO(31, 31, 31, 1),
+                  textStyle: const TextStyle(
                     color: Colors.white,
                     fontSize: 32,
                   ),
+                  onPressButton: (value) {
+                    //
+                  },
                 ),
-                calculatorNumButton(
-                  'x',
-                  layoutManager,
-                  Colors.orange,
-                  const TextStyle(
+                CalculatorNumButton(
+                  number: 'x',
+                  layoutManager: layoutManager,
+                  background: Colors.orange,
+                  textStyle: const TextStyle(
                     color: Colors.white,
                     fontSize: 32,
                   ),
-                ),
-              ],
-            ),
-          ),
-          Container(
-            margin: const EdgeInsets.only(bottom: 6),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                calculatorNumButton(
-                  '4',
-                  layoutManager,
-                  const Color.fromRGBO(31, 31, 31, 1),
-                  const TextStyle(
-                    color: Colors.white,
-                    fontSize: 32,
-                  ),
-                ),
-                calculatorNumButton(
-                  '5',
-                  layoutManager,
-                  const Color.fromRGBO(31, 31, 31, 1),
-                  const TextStyle(
-                    color: Colors.white,
-                    fontSize: 32,
-                  ),
-                ),
-                calculatorNumButton(
-                  '6',
-                  layoutManager,
-                  const Color.fromRGBO(31, 31, 31, 1),
-                  const TextStyle(
-                    color: Colors.white,
-                    fontSize: 32,
-                  ),
-                ),
-                calculatorNumButton(
-                  '―',
-                  layoutManager,
-                  Colors.orange,
-                  const TextStyle(
-                    color: Colors.white,
-                    fontSize: 32,
-                  ),
+                  onPressButton: (value) {
+                    //
+                  },
                 ),
               ],
             ),
@@ -171,41 +162,53 @@ class CalculatorPage extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                calculatorNumButton(
-                  '1',
-                  layoutManager,
-                  const Color.fromRGBO(31, 31, 31, 1),
-                  const TextStyle(
+                CalculatorNumButton(
+                  number: '4',
+                  layoutManager: layoutManager,
+                  background: const Color.fromRGBO(31, 31, 31, 1),
+                  textStyle: const TextStyle(
                     color: Colors.white,
                     fontSize: 32,
                   ),
+                  onPressButton: (value) {
+                    //
+                  },
                 ),
-                calculatorNumButton(
-                  '2',
-                  layoutManager,
-                  const Color.fromRGBO(31, 31, 31, 1),
-                  const TextStyle(
+                CalculatorNumButton(
+                  number: '5',
+                  layoutManager: layoutManager,
+                  background: const Color.fromRGBO(31, 31, 31, 1),
+                  textStyle: const TextStyle(
                     color: Colors.white,
                     fontSize: 32,
                   ),
+                  onPressButton: (value) {
+                    //
+                  },
                 ),
-                calculatorNumButton(
-                  '3',
-                  layoutManager,
-                  const Color.fromRGBO(31, 31, 31, 1),
-                  const TextStyle(
+                CalculatorNumButton(
+                  number: '6',
+                  layoutManager: layoutManager,
+                  background: const Color.fromRGBO(31, 31, 31, 1),
+                  textStyle: const TextStyle(
                     color: Colors.white,
                     fontSize: 32,
                   ),
+                  onPressButton: (value) {
+                    //
+                  },
                 ),
-                calculatorNumButton(
-                  '+',
-                  layoutManager,
-                  Colors.orange,
-                  const TextStyle(
+                CalculatorNumButton(
+                  number: '―',
+                  layoutManager: layoutManager,
+                  background: Colors.orange,
+                  textStyle: const TextStyle(
                     color: Colors.white,
                     fontSize: 32,
                   ),
+                  onPressButton: (value) {
+                    //
+                  },
                 ),
               ],
             ),
@@ -215,32 +218,97 @@ class CalculatorPage extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                calculatorNumButton(
-                  '0',
-                  layoutManager,
-                  const Color.fromRGBO(31, 31, 31, 1),
-                  const TextStyle(
+                CalculatorNumButton(
+                  number: '1',
+                  layoutManager: layoutManager,
+                  background: const Color.fromRGBO(31, 31, 31, 1),
+                  textStyle: const TextStyle(
                     color: Colors.white,
                     fontSize: 32,
                   ),
+                  onPressButton: (value) {
+                    //
+                  },
                 ),
-                calculatorNumButton(
-                  '.',
-                  layoutManager,
-                  const Color.fromRGBO(31, 31, 31, 1),
-                  const TextStyle(
+                CalculatorNumButton(
+                  number: '2',
+                  layoutManager: layoutManager,
+                  background: const Color.fromRGBO(31, 31, 31, 1),
+                  textStyle: const TextStyle(
                     color: Colors.white,
                     fontSize: 32,
                   ),
+                  onPressButton: (value) {
+                    //
+                  },
                 ),
-                calculatorNumButton(
-                  '=',
-                  layoutManager,
-                  Colors.orange,
-                  const TextStyle(
+                CalculatorNumButton(
+                  number: '3',
+                  layoutManager: layoutManager,
+                  background: const Color.fromRGBO(31, 31, 31, 1),
+                  textStyle: const TextStyle(
                     color: Colors.white,
                     fontSize: 32,
                   ),
+                  onPressButton: (value) {
+                    //
+                  },
+                ),
+                CalculatorNumButton(
+                  number: '+',
+                  layoutManager: layoutManager,
+                  background: Colors.orange,
+                  textStyle: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 32,
+                  ),
+                  onPressButton: (value) {
+                    //
+                  },
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(bottom: 6),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                CalculatorNumButton(
+                  number: '0',
+                  layoutManager: layoutManager,
+                  background: const Color.fromRGBO(31, 31, 31, 1),
+                  textStyle: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 32,
+                  ),
+                  onPressButton: (value) {
+                    //
+                  },
+                ),
+                CalculatorNumButton(
+                  number: '.',
+                  layoutManager: layoutManager,
+                  background: const Color.fromRGBO(31, 31, 31, 1),
+                  textStyle: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 32,
+                  ),
+                  onPressButton: (value) {
+                    //
+                  },
+                ),
+                CalculatorNumButton(
+                  number: '=',
+                  layoutManager: layoutManager,
+                  background: Colors.orange,
+                  textStyle: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 32,
+                  ),
+                  onPressButton: (value) {
+                    //
+                  },
                 ),
               ],
             ),
@@ -307,4 +375,6 @@ class CalculatorPage extends StatelessWidget {
             ),
     );
   }
+
+  buttonPress(String text) {}
 }
