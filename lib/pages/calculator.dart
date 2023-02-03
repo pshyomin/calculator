@@ -12,9 +12,6 @@ class Calculator extends StatefulWidget {
 }
 
 class CalculatorState extends State<Calculator> {
-  int num1 = 0;
-  String operand = '';
-  int num2 = 0;
   String output = '0';
 
   @override
