@@ -1,4 +1,6 @@
+import 'package:calculator/cubit/calculator_cubit.dart';
 import 'package:calculator/pages/calculator.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class RouterManager {
@@ -9,7 +11,10 @@ class RouterManager {
         GoRoute(
           path: '/',
           builder: (context, state) {
-            return const Calculator();
+            return BlocProvider(
+              create: (_) => CalculatorCubit(),
+              child: const Calculator(),
+            );
           },
         ),
       ],

@@ -1,8 +1,11 @@
+import 'package:calculator/utils/calculator_observer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'utils/router_manager.dart';
 
 void main() {
+  Bloc.observer = CalculatorObserver();
   runApp(const MyApp());
 }
 
